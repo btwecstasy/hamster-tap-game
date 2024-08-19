@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamster Tap Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            text-align: center;
+        }
+        #hamster {
+            width: 150px;
+            cursor: pointer;
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <img id="hamster" src="https://www.hdwallpapers.in/download/hamster-animals-1600x1200.jpg" alt="Hamster">
+        <div id="score">Score: 0</div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        const hamster = document.getElementById('hamster');
+        const scoreDisplay = document.getElementById('score');
+
+        hamster.addEventListener('click', () => {
+            score++;
+            scoreDisplay.textContent = `Score: ${score}`;
+            moveHamster();
+        });
+
+        function moveHamster() {
+            const maxX = window.innerWidth - hamster.clientWidth;
+            const maxY = window.innerHeight - hamster.clientHeight;
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            hamster.style.position = 'absolute';
+            hamster.style.left = `${newX}px`;
+            hamster.style.top = `${newY}px`;
+        }
+
+        // Initialize hamster position
+        moveHamster();
+    </script>
+</body>
+</html>
+
+
+7444860386:AAHGEAibg_s4O-94Jb8HnyhVBsqGP-dFumE
